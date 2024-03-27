@@ -10,7 +10,7 @@ public class Mopojonne_spawner : MonoBehaviour
     public bool startSpawning;
     public float spawnDelay;
     private float _currentSpawnDelay;
-
+    pointCounter PointCounter;
     private int spawnslot = 0;
     public StartGame StartGame;
     private int lastspawn = 0;
@@ -18,6 +18,7 @@ public class Mopojonne_spawner : MonoBehaviour
     private void Start()
     {
         _currentSpawnDelay = spawnDelay;
+        Debug.Log(PointCounter.currentPoints);
     }
 
     private void Update()
@@ -25,6 +26,8 @@ public class Mopojonne_spawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
+
+
 
             if (startSpawning)
             {
@@ -37,8 +40,14 @@ public class Mopojonne_spawner : MonoBehaviour
                         spawnslot = Random.Range(0, spawnpoints.Length - 1); ;
                     }
                     lastspawn = spawnslot;
-                    Instantiate(prefab, spawnpoints[spawnslot].transform.position, transform.rotation);
+                    GameObject Jonne = Instantiate(prefab, spawnpoints[spawnslot].transform.position, transform.rotation);
+                    if (spawnslot == 1)
+                    {
+                        Jonne.GetComponent<SpriteRenderer>().flipX = true;
+                    }
+
                 }
+
             }
         }
     }
