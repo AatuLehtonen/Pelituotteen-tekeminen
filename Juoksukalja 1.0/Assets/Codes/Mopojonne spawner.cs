@@ -10,7 +10,7 @@ public class Mopojonne_spawner : MonoBehaviour
     public bool startSpawning;
     public float spawnDelay;
     private float _currentSpawnDelay;
-    public GameObject pointCounter;
+    public pointCounter PointCounter;
     private int spawnslot = 0;
     public StartGame StartGame;
     private int lastspawn = 0;
@@ -26,7 +26,7 @@ public class Mopojonne_spawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            if (pointCounter.currentPoints == 10)
+            if (PointCounter.currentPoints == 10)
             {
 
                 if (startSpawning)

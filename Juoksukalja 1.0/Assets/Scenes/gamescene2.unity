@@ -1539,7 +1539,7 @@ MonoBehaviour:
   prefab: {fileID: 5112390090983807928, guid: 4a9b3aa10dbf0994d91c14165479af92, type: 3}
   startSpawning: 1
   spawnDelay: 5
-  pointCounter: {fileID: 1037858009}
+  PointCounter: {fileID: 1037858013}
   StartGame: {fileID: 2063677906}
 --- !u!4 &550763496
 Transform:
