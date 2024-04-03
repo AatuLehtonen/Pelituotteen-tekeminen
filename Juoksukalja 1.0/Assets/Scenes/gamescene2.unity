@@ -3055,7 +3055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1037858010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3104,8 +3104,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3185,6 +3185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointText: {fileID: 1037858011}
+  color: {r: 1, g: 1, b: 1, a: 1}
   currentPoints: 0
 --- !u!1 &1103558294
 GameObject:
@@ -5828,7 +5829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65f1493128ec834e904a7fc015e9c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointCounter: {fileID: 1037858009}
+  PointCounter: {fileID: 1037858013}
   GameStarted: 0
 --- !u!1 &2065714035
 GameObject:
@@ -6086,7 +6087,7 @@ SceneRoots:
   - {fileID: 639987168}
   - {fileID: 743923111}
   - {fileID: 535283633}
+  - {fileID: 550763496}
   - {fileID: 1197094998}
   - {fileID: 630776770}
   - {fileID: 202622649}
-  - {fileID: 550763496}

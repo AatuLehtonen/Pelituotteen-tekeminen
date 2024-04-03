@@ -27,9 +27,9 @@ public class Mopojonne_spawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
+            Debug.Log(PointCounter.currentPoints);
             if (PointCounter.currentPoints == 10)
             {
-
                 if (startSpawning)
                 {
                     _currentSpawnDelay -= Time.deltaTime;
