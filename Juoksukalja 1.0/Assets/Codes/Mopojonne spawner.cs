@@ -18,6 +18,7 @@ public class Mopojonne_spawner : MonoBehaviour
     private void Start()
     {
         _currentSpawnDelay = spawnDelay;
+        PointCounter = new pointCounter();
     }
 
     private void Update()

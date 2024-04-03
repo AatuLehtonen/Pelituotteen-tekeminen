@@ -31,7 +31,7 @@ public class playerMovement : MonoBehaviour
 
             if (OnAir && Input.GetKey(KeyCode.Space) && jumped == false && rb.velocity.y <= 0 && !falling)
             {
-                Debug.Log("HYPPY");
+                //Debug.Log("HYPPY");
                 Jump();
             }
 

@@ -14,7 +14,7 @@ public class playerHp : MonoBehaviour
     {
         // Decrease player hp by 1
         hp--;
-        Debug.Log("Player Hp" + hp);
+        //Debug.Log("Player Hp" + hp);
 
         if (hp == 0)
         {
@@ -24,7 +24,7 @@ public class playerHp : MonoBehaviour
 
     void youDied()
     {
-        Debug.Log("Game Over");
+        //Debug.Log("Game Over");
         //SceneManager.LoadScene("");
     }
 }
