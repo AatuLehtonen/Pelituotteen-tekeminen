@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 202622648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4017363, y: 7.326644, z: -9.836823}
+  m_LocalPosition: {x: 0, y: 0, z: 0.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1479,8 +1479,6 @@ Transform:
   - {fileID: 71083057}
   - {fileID: 615623538}
   - {fileID: 877933624}
-  - {fileID: 1419289646}
-  - {fileID: 665342629}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &535283634
@@ -1506,6 +1504,60 @@ MonoBehaviour:
   startSpawning: 1
   spawnDelay: 2.5
   StartGame: {fileID: 2063677906}
+--- !u!1 &550763494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550763496}
+  - component: {fileID: 550763495}
+  m_Layer: 0
+  m_Name: Mopojonne spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &550763495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550763494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bee8f223348a7448e2dc36d95647bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnpoints:
+  - {fileID: 1419289644}
+  - {fileID: 665342628}
+  prefab: {fileID: 5112390090983807928, guid: 4a9b3aa10dbf0994d91c14165479af92, type: 3}
+  startSpawning: 1
+  spawnDelay: 5
+  PointCounter: {fileID: 1037858013}
+  StartGame: {fileID: 2063677906}
+--- !u!4 &550763496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550763494}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1, y: -32.35, z: 1.020263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1419289646}
+  - {fileID: 665342629}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &613594556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,11 +1905,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665342629}
-  - component: {fileID: 665342630}
   m_Layer: 0
   m_Name: mopojonne 2
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1870,29 +1921,12 @@ Transform:
   m_GameObject: {fileID: 665342628}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.4, y: -70.56, z: 0}
+  m_LocalPosition: {x: -64.6, y: 12.4, z: -0.58026296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 535283633}
+  m_Father: {fileID: 550763496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &665342630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665342628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69bee8f223348a7448e2dc36d95647bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnpoints: []
-  prefab: {fileID: 0}
-  startSpawning: 0
-  spawnDelay: 0
-  StartGame: {fileID: 0}
 --- !u!1 &743170215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +2077,7 @@ GameObject:
   - component: {fileID: 743923115}
   - component: {fileID: 743923116}
   - component: {fileID: 743923117}
+  - component: {fileID: 743923118}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2308,6 +2343,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.16189, y: 0.40410805}
   m_EdgeRadius: 0
+--- !u!114 &743923118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743923109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7791056f08670f044be4aa0552ac2ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
 --- !u!1 &804199019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2877,7 @@ GameObject:
   - component: {fileID: 1026300467}
   - component: {fileID: 1026300466}
   - component: {fileID: 1026300465}
+  - component: {fileID: 1026300468}
   m_Layer: 8
   m_Name: mopojonne
   m_TagString: Untagged
@@ -2845,7 +2894,7 @@ Transform:
   m_GameObject: {fileID: 1026300463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.98, y: -26.93, z: 9.836823}
+  m_LocalPosition: {x: 62.5, y: -19.88, z: -0.12}
   m_LocalScale: {x: 17, y: 17, z: 17}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2863,10 +2912,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 511
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2922,7 +2971,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!212 &1026300467
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2975,6 +3024,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1026300468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026300463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a48afd1c85d1504bb3cc0056a9174ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionLeft: 1
 --- !u!1 &1037858009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3865,33 +3927,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419289646}
-  - component: {fileID: 1419289645}
   m_Layer: 0
   m_Name: mopojonne 1
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1419289645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419289644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69bee8f223348a7448e2dc36d95647bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnpoints:
-  - {fileID: 1419289644}
-  - {fileID: 665342628}
-  prefab: {fileID: 1026300463}
-  startSpawning: 0
-  spawnDelay: 0
-  StartGame: {fileID: 0}
 --- !u!4 &1419289646
 Transform:
   m_ObjectHideFlags: 0
@@ -3901,11 +3943,11 @@ Transform:
   m_GameObject: {fileID: 1419289644}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.3, y: -70.56, z: 0}
+  m_LocalPosition: {x: 66.1, y: 12.4, z: -0.58026296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 535283633}
+  m_Father: {fileID: 550763496}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1427629750
 GameObject:
@@ -6047,3 +6089,4 @@ SceneRoots:
   - {fileID: 1197094998}
   - {fileID: 630776770}
   - {fileID: 202622649}
+  - {fileID: 550763496}
