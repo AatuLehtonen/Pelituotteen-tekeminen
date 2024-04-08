@@ -18,7 +18,6 @@ public class Mopojonne_spawner : MonoBehaviour
     private void Start()
     {
         _currentSpawnDelay = spawnDelay;
-        PointCounter = new pointCounter();
     }
 
     private void Update()
@@ -27,33 +26,30 @@ public class Mopojonne_spawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            Debug.Log(PointCounter.currentPoints);
-            if (PointCounter.currentPoints == 10)
+            if (PointCounter.currentPoints >= 0)
             {
-                if (startSpawning)
+                //Debug.Log(PointCounter.currentPoints);
+                _currentSpawnDelay -= Time.deltaTime;
+                if (_currentSpawnDelay < 0)
                 {
-                    _currentSpawnDelay -= Time.deltaTime;
-                    if (_currentSpawnDelay < 0)
+                    _currentSpawnDelay = spawnDelay;
+                    while (lastspawn == spawnslot)
                     {
-                        _currentSpawnDelay = spawnDelay;
-                        while (lastspawn == spawnslot)
-                        {
-                            spawnslot = Random.Range(0, spawnpoints.Length);
-                        }
-
-                        lastspawn = spawnslot;
-                        GameObject Jonne = Instantiate(prefab, spawnpoints[spawnslot].transform.position, transform.rotation);
-                        if (spawnslot == 1)
-                        {
-                            Jonne.GetComponent<SpriteRenderer>().flipX = true;
-                            Jonne.GetComponent<Mopojonnebehavior>().directionLeft = false;
-                        }
-                        else
-                        {
-                            Jonne.GetComponent<Mopojonnebehavior>().directionLeft = true;
-                        }
-
+                        spawnslot = Random.Range(0, spawnpoints.Length);
                     }
+
+                    lastspawn = spawnslot;
+                    GameObject Jonne = Instantiate(prefab, spawnpoints[spawnslot].transform.position, transform.rotation);
+                    if (spawnslot == 1)
+                    {
+                        Jonne.GetComponent<SpriteRenderer>().flipX = true;
+                        Jonne.GetComponent<Mopojonnebehavior>().directionLeft = false;
+                    }
+                    else
+                    {
+                        Jonne.GetComponent<Mopojonnebehavior>().directionLeft = true;
+                    }
+
                 }
 
             }

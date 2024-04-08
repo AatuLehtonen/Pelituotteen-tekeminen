@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 994993350268920568}
   - component: {fileID: 4773317984349428797}
   - component: {fileID: 2301666433674022618}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: mopojonne
-  m_TagString: Untagged
+  m_TagString: Mopojonne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,10 +99,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0073361397, y: -0.009205423}
@@ -171,4 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a48afd1c85d1504bb3cc0056a9174ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartGame: {fileID: 0}
+  directionLeft: 1
