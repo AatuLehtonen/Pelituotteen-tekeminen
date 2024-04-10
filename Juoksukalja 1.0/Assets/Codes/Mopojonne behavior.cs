@@ -19,4 +19,9 @@ public class Mopojonnebehavior : MonoBehaviour
             transform.position = transform.position + (Vector3.left * force) * Time.deltaTime;
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5405514988188851960}
   - component: {fileID: -6643492574838776827}
   - component: {fileID: 7328486435528185828}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: kaljalaatikko
   m_TagString: Untagged
   m_Icon: {fileID: 0}

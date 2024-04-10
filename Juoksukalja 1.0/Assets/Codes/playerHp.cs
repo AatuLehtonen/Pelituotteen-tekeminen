@@ -10,22 +10,27 @@ public class playerHp : MonoBehaviour
 
     int hp = 3;
 
-    private void OnCollisionEnter2D(Collision2D hazards)
-    {
-        // Decrease player hp by 1
-        hp--;
-        Debug.Log("Player Hp" + hp);
 
-        if (hp == 0)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Player Hp" + hp);
+        if (other.gameObject.CompareTag("Mopojonne"))
         {
-            youDied();
+            // Decrease player hp by 1
+            hp--;
+
+            if (hp <= 0)
+            {
+                youDied();
+            }
+
         }
     }
 
     void youDied()
     {
         Debug.Log("Game Over");
-        //SceneManager.LoadScene("");
+        SceneManager.LoadScene("gamescene2");
     }
 }
 

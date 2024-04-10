@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
-    public GameObject pointCounter;
+    public pointCounter PointCounter;
     public bool GameStarted = false;
     public bool HasGameStarted()
     {
@@ -15,7 +15,7 @@ public class StartGame : MonoBehaviour
     {
         GameStarted = true;
         Destroy(gameObject);
-        pointCounter.SetActive(true);
+        PointCounter.showCounter();
     }
 }
 
