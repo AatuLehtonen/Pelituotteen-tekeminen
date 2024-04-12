@@ -14,10 +14,13 @@ public class playerHp : MonoBehaviour
 
     public Sprite emptyHeart;
 
+    bool nodamage = false;
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Player Hp" + hp);
-        if (other.gameObject.CompareTag("Mopojonne"))
+        if (other.gameObject.CompareTag("Mopojonne") && !nodamage)
         {
             // Decrease player hp by 1
             hp--;
@@ -30,9 +33,20 @@ public class playerHp : MonoBehaviour
                 youDied();
             }
 
-
-
         }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Mopojonne"))
+        {
+            nodamage = true;
+            Invoke("EnableDamage", 3.0f);
+        }
+    }
+    void EnableDamage()
+    {
+        nodamage = false;
     }
 
     void youDied()
