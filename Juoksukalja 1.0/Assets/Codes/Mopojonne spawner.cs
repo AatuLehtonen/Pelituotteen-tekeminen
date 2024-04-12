@@ -15,6 +15,8 @@ public class Mopojonne_spawner : MonoBehaviour
     public StartGame StartGame;
     private int lastspawn = 0;
 
+    public int Jonneja = 0;
+
     private void Start()
     {
         _currentSpawnDelay = spawnDelay;
@@ -26,7 +28,7 @@ public class Mopojonne_spawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            if (PointCounter.currentPoints >= 0)
+            if (PointCounter.currentPoints >= 10)
             {
                 //Debug.Log(PointCounter.currentPoints);
                 _currentSpawnDelay -= Time.deltaTime;
@@ -53,6 +55,49 @@ public class Mopojonne_spawner : MonoBehaviour
                 }
 
             }
+            if (PointCounter.currentPoints >= 1)
+            {
+                InvokeRepeating("Jonnewave", 0, 0.5f);
+            }
+
         }
     }
+    void Jonnewave()
+    {
+
+        if (Jonneja < 2)
+        {
+            //Debug.Log(PointCounter.currentPoints);
+            _currentSpawnDelay -= Time.deltaTime;
+            if (_currentSpawnDelay < 0)
+            {
+                _currentSpawnDelay = spawnDelay;
+                while (lastspawn == spawnslot)
+                {
+                    spawnslot = Random.Range(0, spawnpoints.Length);
+                }
+
+                lastspawn = spawnslot;
+                GameObject Jonne = Instantiate(prefab, spawnpoints[spawnslot].transform.position, transform.rotation);
+                if (spawnslot == 1)
+                {
+                    Jonne.GetComponent<SpriteRenderer>().flipX = true;
+                    Jonne.GetComponent<Mopojonnebehavior>().directionLeft = false;
+                }
+                else
+                {
+                    Jonne.GetComponent<Mopojonnebehavior>().directionLeft = true;
+                }
+
+                Jonneja++;
+
+            }
+        }
+        else
+        {
+            Jonneja = 0;
+            CancelInvoke("JonneWave");
+        }
+    }
+
 }
