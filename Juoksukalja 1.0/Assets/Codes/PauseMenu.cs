@@ -42,13 +42,12 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Testi");
     }
 
-    public void QuitGame()
+    public void ExitGame()
     {
-        Debug.Log("Quitting game...");
-        //Application.Quit();
-        //Alempaa tarvitaan Unity editorissa.
-        //UnityEditor.EditorApplication.isPlaying = false;
+        Debug.Log("Exitting game...");
         SceneManager.LoadScene("gamescene2");
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 
 
