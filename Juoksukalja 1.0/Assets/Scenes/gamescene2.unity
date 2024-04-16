@@ -4804,6 +4804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SG: {fileID: 2063677906}
   janoMittari: {fileID: 1280885353}
+  Jano: {fileID: 987145816}
 --- !u!1 &1218110140
 GameObject:
   m_ObjectHideFlags: 0
