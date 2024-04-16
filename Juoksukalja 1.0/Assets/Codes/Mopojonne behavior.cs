@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mopojonnebehavior : MonoBehaviour
 {
-    int force = 25;
+    int force = 45;
     public bool directionLeft = true;
 
     // Update is called once per frame
