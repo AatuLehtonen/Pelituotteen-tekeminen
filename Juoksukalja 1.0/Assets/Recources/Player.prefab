@@ -326,3 +326,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  hearts: []
+  emptyHeart: {fileID: 0}

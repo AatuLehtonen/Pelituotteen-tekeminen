@@ -2931,6 +2931,7 @@ GameObject:
   - component: {fileID: 743923116}
   - component: {fileID: 743923117}
   - component: {fileID: 743923118}
+  - component: {fileID: 743923119}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3208,12 +3209,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7791056f08670f044be4aa0552ac2ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
+  Flicker: {fileID: 743923119}
   hearts:
   - {fileID: 958804237}
   - {fileID: 1609829183}
   - {fileID: 1108327178}
   emptyHeart: {fileID: 2071529650, guid: 6ce1035924b215b4290ff99df574ba43, type: 3}
+--- !u!114 &743923119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743923109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11f4223df6e7164fb7d395f67a3b6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 743923110}
+  flickerAmount: 20
+  flickerDuration: 0.05
 --- !u!1 &804199019
 GameObject:
   m_ObjectHideFlags: 0
@@ -4788,6 +4804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SG: {fileID: 2063677906}
   janoMittari: {fileID: 1280885353}
+  Jano: {fileID: 987145816}
 --- !u!1 &1218110140
 GameObject:
   m_ObjectHideFlags: 0

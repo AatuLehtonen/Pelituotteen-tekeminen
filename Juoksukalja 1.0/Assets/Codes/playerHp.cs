@@ -8,7 +8,8 @@ public class playerHp : MonoBehaviour
 {
 
     [SerializeField]
-
+    DamageFlicker Flicker;
+    
     int hp = 3;
     public SpriteRenderer[] hearts;
 
@@ -25,8 +26,12 @@ public class playerHp : MonoBehaviour
             // Decrease player hp by 1
             hp--;
 
+            Flicker.Flicker();
+
             hearts[hp].sprite = emptyHeart;
 
+            nodamage = true;
+            Invoke("EnableDamage", 2.0f);
 
             if (hp <= 0)
             {
@@ -35,17 +40,9 @@ public class playerHp : MonoBehaviour
 
         }
     }
-
-    void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Mopojonne"))
-        {
-            nodamage = true;
-            Invoke("EnableDamage", 3.0f);
-        }
-    }
     void EnableDamage()
     {
+        Debug.Log("damage");
         nodamage = false;
     }
 
