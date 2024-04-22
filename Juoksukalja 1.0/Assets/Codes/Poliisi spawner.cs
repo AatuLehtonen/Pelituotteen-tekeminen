@@ -40,7 +40,8 @@ public class Poliisispawner : MonoBehaviour
                     GameObject poliisi = Instantiate(prefab, spawnpoints[spawnslot].transform.position, transform.rotation);
                     if (spawnslot == 1)
                     {
-                        poliisi.GetComponent<SpriteRenderer>().flipX = true;
+                        Debug.Log("hit");
+                        poliisi.transform.eulerAngles = new Vector3(poliisi.transform.eulerAngles.x + 180, poliisi.transform.eulerAngles.y, poliisi.transform.eulerAngles.z + 180);
                         poliisi.GetComponent<Poliisibehavior>().directionLeft = true;
                     }
                     else

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1348917545247251427}
   m_Layer: 0
   m_Name: Poliisi
-  m_TagString: Mopojonne
+  m_TagString: Poliisi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
