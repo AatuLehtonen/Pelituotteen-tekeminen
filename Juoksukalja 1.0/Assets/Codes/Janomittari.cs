@@ -7,6 +7,8 @@ public class Janomittari : MonoBehaviour
 {
     public StartGame SG;
 
+    public playerHp HP;
+
     public GameObject janoMittari;
     public Image Jano;
 
@@ -18,9 +20,20 @@ public class Janomittari : MonoBehaviour
             janoMittari.SetActive(true);
 
             Jano.fillAmount = Mathf.Lerp(Jano.fillAmount, Jano.fillAmount - (0.016f * 3.8f), Time.deltaTime);
-            //if (Jano.fillAmount <= 0)
-            //Debug.Log("Mittari tyhjä!");
+            if (Jano.fillAmount <= 0 && !HP.nodamage)
+            {
+                Debug.Log("Mittari tyhjä!");
+                HP.takeDamage();
+
+                Jano.fillAmount = 1;
+            }
+
         }
 
+    }
+
+    public void Drink()
+    {
+        Jano.fillAmount = Jano.fillAmount + 0.2f;
     }
 }

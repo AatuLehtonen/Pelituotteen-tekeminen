@@ -30,7 +30,7 @@ public class Mopojonne_spawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            if (PointCounter.currentPoints >= 1)
+            if (PointCounter.currentPoints >= 100)
             {
                 //Debug.Log(PointCounter.currentPoints);
                 _currentSpawnDelay -= Time.deltaTime;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7329232296095935307}
   - component: {fileID: 382840955757991317}
   - component: {fileID: 1348917545247251427}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Poliisi
   m_TagString: Poliisi
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ BoxCollider2D:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9089836406362727905}
   - component: {fileID: 6931569500922843691}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: headCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

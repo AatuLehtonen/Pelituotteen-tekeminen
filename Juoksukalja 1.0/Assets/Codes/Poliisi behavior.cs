@@ -9,10 +9,17 @@ public class Poliisibehavior : MonoBehaviour
 
     bool chasing = false;
 
+    bool changingDirection = false;
+
+    public bool lastDirLeft = false;
+
+    Poliisispawner spawner;
+
 
     Transform player;
     void Start()
     {
+        spawner = GameObject.Find("Poliisi spawner").GetComponent<Poliisispawner>();
         player = GameObject.Find("Player").transform;
     }
 
@@ -21,8 +28,15 @@ public class Poliisibehavior : MonoBehaviour
     {
         if (chasing)
         {
+            // Tarkastetaan joka sekunti jahdatessa, että täytyykö poliisin suuntaa muuttaa
+            if (!changingDirection)
+            {
+                Invoke("changeX", 0.5f);
+                changingDirection = true;
+            }
+
             // Jos pelaaja on poliisin vasemmalla
-            if (player.position.x < transform.position.x)
+            if (directionLeft)
             {
                 transform.position = transform.position + (Vector3.left * force * 1.5f) * Time.deltaTime;
             }
@@ -62,6 +76,31 @@ public class Poliisibehavior : MonoBehaviour
         }
     }
 
+    void changeX()
+    {
+
+        if (player.position.x < transform.position.x)
+        {
+            directionLeft = true;
+            if (!lastDirLeft)
+            {
+                transform.eulerAngles = new Vector3(180, transform.eulerAngles.y, 180);
+                lastDirLeft = true;
+            }
+        }
+        else if (player.position.x > transform.position.x)
+        {
+
+            directionLeft = false;
+            if (lastDirLeft)
+            {
+                transform.eulerAngles = new Vector3(180, transform.eulerAngles.y, 180);
+                lastDirLeft = false;
+            }
+        }
+        changingDirection = false;
+    }
+
     void stopchansing()
     {
         chasing = false;
@@ -69,6 +108,7 @@ public class Poliisibehavior : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        spawner.poliiseja--;
         Destroy(gameObject);
     }
 }
