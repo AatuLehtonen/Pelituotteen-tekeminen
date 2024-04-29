@@ -8,6 +8,7 @@ TagManager:
   - Mopojonne
   - kaljakori
   - Poliisi
+  - PoliisiDamage
   layers:
   - Default
   - TransparentFX

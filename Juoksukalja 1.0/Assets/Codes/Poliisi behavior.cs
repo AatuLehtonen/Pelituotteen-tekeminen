@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Poliisibehavior : MonoBehaviour
 {
-    int force = 15;
     public bool directionLeft = true;
 
     bool chasing = false;
@@ -13,11 +12,9 @@ public class Poliisibehavior : MonoBehaviour
 
     bool onAir = false;
 
-    bool jumped = false;
-
     private float speed = 15f;
 
-    float jumpingPower = 30f;
+    float jumpingPower = 40f;
 
     public bool lastDirLeft = false;
 
@@ -37,12 +34,12 @@ public class Poliisibehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (chasing && !onAir)
+        if (chasing)
         {
             // Tarkastetaan joka sekunti jahdatessa, että täytyykö poliisin suuntaa muuttaa
             if (!changingDirection)
             {
-                Invoke("changeX", 0.5f);
+                Invoke("changeX", 0.3f);
                 changingDirection = true;
             }
 
@@ -50,18 +47,15 @@ public class Poliisibehavior : MonoBehaviour
             if (directionLeft)
             {
                 rb.velocity = new Vector2(-1 * speed * 1.5f, rb.velocity.y);
-                //transform.position = transform.position + (Vector3.left * force * 1.5f) * Time.deltaTime;
             }
             else
             {
                 rb.velocity = new Vector2(1 * speed * 1.5f, rb.velocity.y);
-                //transform.position = transform.position + (Vector3.right * force * 1.5f) * Time.deltaTime;
             }
 
             if (player.position.y > transform.position.y && !onAir && !falling)
             {
                 Jump();
-
             }
 
         }
@@ -70,12 +64,10 @@ public class Poliisibehavior : MonoBehaviour
             if (!directionLeft)
             {
                 rb.velocity = new Vector2(1 * speed, rb.velocity.y);
-                //transform.position = transform.position + (Vector3.right * force) * Time.deltaTime;
             }
             else
             {
                 rb.velocity = new Vector2(-1 * speed, rb.velocity.y);
-                //transform.position = transform.position + (Vector3.left * force) * Time.deltaTime;
             }
         }
     }
@@ -93,7 +85,7 @@ public class Poliisibehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Invoke("stopchansing", 5.0f);
+            Invoke("stopchansing", 20.0f);
         }
     }
 
@@ -127,8 +119,6 @@ public class Poliisibehavior : MonoBehaviour
         if (onAir || falling) // prevent police to jump if on air
             return;
 
-        jumped = true;
-
         onAir = true;
 
         //animator.SetTrigger("Jump");
@@ -144,8 +134,10 @@ public class Poliisibehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
-            Invoke("DisableOnAir", 0.3f);
+            CancelInvoke("DisableOnAir");
+            Invoke("DisableOnAir", 3f);
         }
+
     }
 
     private void fall()
@@ -161,17 +153,9 @@ public class Poliisibehavior : MonoBehaviour
 
     private void DisableOnAir()
     {
+        Debug.Log("disable on air");
         onAir = false;
-        jumped = false;
         falling = false;
-    }
-
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Floor"))
-        {
-            DisableOnAir();
-        }
     }
 
     private void OnBecameInvisible()

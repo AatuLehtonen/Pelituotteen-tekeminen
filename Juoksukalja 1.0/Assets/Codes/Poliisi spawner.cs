@@ -15,7 +15,7 @@ public class Poliisispawner : MonoBehaviour
     private int lastspawn = 0;
 
     public int poliiseja = 0;
-    public int maxPoliisit = 3;
+    public int maxPoliisit = 1;
 
 
 
@@ -29,7 +29,7 @@ public class Poliisispawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            if (PointCounter.currentPoints >= 1 && poliiseja <= maxPoliisit)
+            if (PointCounter.currentPoints >= 1 && poliiseja < maxPoliisit)
             {
                 //Debug.Log(PointCounter.currentPoints);
                 _currentSpawnDelay -= Time.deltaTime;
