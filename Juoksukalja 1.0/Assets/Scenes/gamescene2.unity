@@ -3210,11 +3210,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Flicker: {fileID: 743923119}
+  hp: 3
   hearts:
   - {fileID: 958804237}
   - {fileID: 1609829183}
   - {fileID: 1108327178}
   emptyHeart: {fileID: 2071529650, guid: 6ce1035924b215b4290ff99df574ba43, type: 3}
+  nodamage: 0
 --- !u!114 &743923119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4784,7 +4786,7 @@ GameObject:
   - component: {fileID: 1197094999}
   - component: {fileID: 1197095000}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: JanoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4911,6 +4913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SG: {fileID: 2063677906}
+  HP: {fileID: 743923118}
   janoMittari: {fileID: 1280885353}
   Jano: {fileID: 987145816}
 --- !u!1 &1218110140
@@ -6940,6 +6943,8 @@ MonoBehaviour:
   spawnDelay: 5
   PointCounter: {fileID: 1037858013}
   StartGame: {fileID: 2063677906}
+  poliiseja: 0
+  maxPoliisit: 3
 --- !u!1 &1917611870
 GameObject:
   m_ObjectHideFlags: 0
@@ -7127,7 +7132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1953998650
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -14,6 +14,11 @@ public class Poliisispawner : MonoBehaviour
     public StartGame StartGame;
     private int lastspawn = 0;
 
+    public int poliiseja = 0;
+    public int maxPoliisit = 3;
+
+
+
     private void Start()
     {
         _currentSpawnDelay = spawnDelay;
@@ -24,7 +29,7 @@ public class Poliisispawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            if (PointCounter.currentPoints >= 1)
+            if (PointCounter.currentPoints >= 1 && poliiseja <= maxPoliisit)
             {
                 //Debug.Log(PointCounter.currentPoints);
                 _currentSpawnDelay -= Time.deltaTime;
@@ -38,15 +43,18 @@ public class Poliisispawner : MonoBehaviour
 
                     lastspawn = spawnslot;
                     GameObject poliisi = Instantiate(prefab, spawnpoints[spawnslot].transform.position, transform.rotation);
+                    poliiseja++;
                     if (spawnslot == 1)
                     {
-                        Debug.Log("hit");
                         poliisi.transform.eulerAngles = new Vector3(poliisi.transform.eulerAngles.x + 180, poliisi.transform.eulerAngles.y, poliisi.transform.eulerAngles.z + 180);
                         poliisi.GetComponent<Poliisibehavior>().directionLeft = true;
+                        poliisi.GetComponent<Poliisibehavior>().lastDirLeft = true;
+
                     }
                     else
                     {
                         poliisi.GetComponent<Poliisibehavior>().directionLeft = false;
+                        poliisi.GetComponent<Poliisibehavior>().lastDirLeft = false;
                     }
 
                 }
