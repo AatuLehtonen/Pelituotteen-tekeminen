@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class Poliisibehavior : MonoBehaviour
 {
-    int force = 15;
     public bool directionLeft = true;
 
     bool chasing = false;
 
     bool changingDirection = false;
 
+    bool onAir = false;
+
+    private float speed = 15f;
+
+    float jumpingPower = 40f;
+
     public bool lastDirLeft = false;
 
+    private bool falling = false;
+
     Poliisispawner spawner;
-
-
     Transform player;
+
+    [SerializeField] private Rigidbody2D rb;
+
     void Start()
     {
         spawner = GameObject.Find("Poliisi spawner").GetComponent<Poliisispawner>();
@@ -31,18 +39,23 @@ public class Poliisibehavior : MonoBehaviour
             // Tarkastetaan joka sekunti jahdatessa, että täytyykö poliisin suuntaa muuttaa
             if (!changingDirection)
             {
-                Invoke("changeX", 0.5f);
+                Invoke("changeX", 0.3f);
                 changingDirection = true;
             }
 
             // Jos pelaaja on poliisin vasemmalla
             if (directionLeft)
             {
-                transform.position = transform.position + (Vector3.left * force * 1.5f) * Time.deltaTime;
+                rb.velocity = new Vector2(-1 * speed * 1.5f, rb.velocity.y);
             }
             else
             {
-                transform.position = transform.position + (Vector3.right * force * 1.5f) * Time.deltaTime;
+                rb.velocity = new Vector2(1 * speed * 1.5f, rb.velocity.y);
+            }
+
+            if (player.position.y > transform.position.y && !onAir && !falling)
+            {
+                Jump();
             }
 
         }
@@ -50,11 +63,11 @@ public class Poliisibehavior : MonoBehaviour
         {
             if (!directionLeft)
             {
-                transform.position = transform.position + (Vector3.right * force) * Time.deltaTime;
+                rb.velocity = new Vector2(1 * speed, rb.velocity.y);
             }
             else
             {
-                transform.position = transform.position + (Vector3.left * force) * Time.deltaTime;
+                rb.velocity = new Vector2(-1 * speed, rb.velocity.y);
             }
         }
     }
@@ -72,7 +85,7 @@ public class Poliisibehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Invoke("stopchansing", 5.0f);
+            Invoke("stopchansing", 20.0f);
         }
     }
 
@@ -101,9 +114,48 @@ public class Poliisibehavior : MonoBehaviour
         changingDirection = false;
     }
 
+    private void Jump()
+    {
+        if (onAir || falling) // prevent police to jump if on air
+            return;
+
+        onAir = true;
+
+        //animator.SetTrigger("Jump");
+
+        rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+    }
+
     void stopchansing()
     {
         chasing = false;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            CancelInvoke("DisableOnAir");
+            Invoke("DisableOnAir", 3f);
+        }
+
+    }
+
+    private void fall()
+    {
+        falling = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        fall();
+        onAir = true;
+    }
+
+    private void DisableOnAir()
+    {
+        Debug.Log("disable on air");
+        onAir = false;
+        falling = false;
     }
 
     private void OnBecameInvisible()

@@ -35,6 +35,11 @@ public class playerMovement : MonoBehaviour
                 Jump();
             }
 
+            if (Input.GetKey(KeyCode.DownArrow) && OnAir == false)
+            {
+
+            }
+
 
             /* _____kusee hyppykorkeuden______
 

@@ -21,7 +21,7 @@ public class playerHp : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Player Hp" + hp);
-        if (other.gameObject.CompareTag("Mopojonne") && !nodamage)
+        if ((other.gameObject.CompareTag("Mopojonne") || other.gameObject.CompareTag("PoliisiDamage")) && !nodamage)
         {
             // Decrease player hp by 1
             hp--;
