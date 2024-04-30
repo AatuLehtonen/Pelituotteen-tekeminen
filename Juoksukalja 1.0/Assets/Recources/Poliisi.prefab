@@ -91,6 +91,8 @@ GameObject:
   - component: {fileID: 7329232296095935307}
   - component: {fileID: 382840955757991317}
   - component: {fileID: 1348917545247251427}
+  - component: {fileID: 3490353809987401802}
+  - component: {fileID: 6261353258071374625}
   m_Layer: 8
   m_Name: Poliisi
   m_TagString: Poliisi
@@ -302,6 +304,44 @@ MonoBehaviour:
   directionLeft: 1
   lastDirLeft: 0
   rb: {fileID: 1377368556620404586}
+  poliisi: {fileID: 3490353809987401802}
+--- !u!95 &3490353809987401802
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967412763056753901}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0fe68677936d1f7428c16ff16eaafbb4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &6261353258071374625
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967412763056753901}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 0}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8486120772057610273
 GameObject:
   m_ObjectHideFlags: 0

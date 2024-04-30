@@ -28,13 +28,13 @@ public class playerHp : MonoBehaviour
 
             Flicker.Flicker();
 
-            hearts[hp].sprite = emptyHeart;
-
             if (hp <= 0)
             {
                 youDied();
                 return;
             }
+
+            hearts[hp].sprite = emptyHeart;
 
             nodamage = true;
 

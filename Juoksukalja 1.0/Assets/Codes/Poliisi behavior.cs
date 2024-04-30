@@ -25,6 +25,8 @@ public class Poliisibehavior : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
 
+    [SerializeField] private Animator poliisi;
+
     void Start()
     {
         spawner = GameObject.Find("Poliisi spawner").GetComponent<Poliisispawner>();
@@ -121,7 +123,7 @@ public class Poliisibehavior : MonoBehaviour
 
         onAir = true;
 
-        //animator.SetTrigger("Jump");
+        poliisi.SetTrigger("Jump");
 
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
     }
@@ -134,6 +136,7 @@ public class Poliisibehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
+            poliisi.SetTrigger("Run");
             CancelInvoke("DisableOnAir");
             Invoke("DisableOnAir", 3f);
         }
