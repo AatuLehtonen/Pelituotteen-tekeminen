@@ -34,6 +34,6 @@ public class Janomittari : MonoBehaviour
 
     public void Drink()
     {
-        Jano.fillAmount = Jano.fillAmount + 0.2f;
+        Jano.fillAmount = Jano.fillAmount + 0.33f;
     }
 }

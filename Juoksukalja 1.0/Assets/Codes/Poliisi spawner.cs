@@ -7,7 +7,7 @@ public class Poliisispawner : MonoBehaviour
     public GameObject[] spawnpoints;
     public GameObject prefab;
     public bool startSpawning;
-    public float spawnDelay;
+    float spawnDelay = 15;
     private float _currentSpawnDelay;
     public pointCounter PointCounter;
     private int spawnslot = 0;
@@ -15,7 +15,7 @@ public class Poliisispawner : MonoBehaviour
     private int lastspawn = 0;
 
     public int poliiseja = 0;
-    public int maxPoliisit = 1;
+    int maxPoliisit = 1;
 
 
 
@@ -29,7 +29,7 @@ public class Poliisispawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            if (PointCounter.currentPoints >= 1 && poliiseja < maxPoliisit)
+            if (PointCounter.currentPoints >= 20 && poliiseja < maxPoliisit)
             {
                 //Debug.Log(PointCounter.currentPoints);
                 _currentSpawnDelay -= Time.deltaTime;
@@ -58,8 +58,19 @@ public class Poliisispawner : MonoBehaviour
                     }
 
                 }
-
             }
+
+            if (PointCounter.currentPoints >= 40)
+            {
+                maxPoliisit = 2;
+            }
+
+            if (PointCounter.currentPoints >= 60)
+            {
+                maxPoliisit = 2;
+            }
+
+
 
         }
     }

@@ -30,13 +30,15 @@ public class playerHp : MonoBehaviour
 
             hearts[hp].sprite = emptyHeart;
 
-            nodamage = true;
-            Invoke("EnableDamage", 2.0f);
-
             if (hp <= 0)
             {
                 youDied();
+                return;
             }
+
+            nodamage = true;
+
+            Invoke("EnableDamage", 2.0f);
 
         }
     }
@@ -56,6 +58,11 @@ public class playerHp : MonoBehaviour
     {
         hp--;
         hearts[hp].sprite = emptyHeart;
+        if (hp <= 0)
+        {
+            youDied();
+            return;
+        }
         nodamage = true;
         Invoke("EnableDamage", 2.0f);
     }

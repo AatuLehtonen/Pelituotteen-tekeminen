@@ -30,7 +30,7 @@ public class Mopojonne_spawner : MonoBehaviour
 
         if (StartGame.HasGameStarted())
         {
-            if (PointCounter.currentPoints >= 100)
+            if (PointCounter.currentPoints >= 10)
             {
                 //Debug.Log(PointCounter.currentPoints);
                 _currentSpawnDelay -= Time.deltaTime;
@@ -60,7 +60,7 @@ public class Mopojonne_spawner : MonoBehaviour
                     }
                     else // random range = 1
                     {
-                        if (PointCounter.currentPoints >= 1)
+                        if (PointCounter.currentPoints >= 30)
                         {
                             InvokeRepeating("Jonnewave", 0, 0.3f);
                         }
