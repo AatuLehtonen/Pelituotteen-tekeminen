@@ -8,7 +8,16 @@ public class QuitGame : MonoBehaviour
     public void QuitTheGame()
     {
         Debug.Log("Quitting the Game...");
-        UnityEditor.EditorApplication.isPlaying = false;
+        if (Application.isEditor)
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 
 }
